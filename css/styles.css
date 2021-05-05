@@ -12,6 +12,8 @@
 
 --main-font: 'Roboto', sans-serif;
 --logo-font: 'Raleway', sans-serif;
+
+--animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 html {
@@ -41,15 +43,14 @@ h5,
 h6,
 p {
 	margin-top: 0;
+    margin-bottom: 0;
 }
 
 .link {
     text-decoration: none;
     color: inherit;
 
-    transition-property: color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color var(--animation);
 }
 
 .link:hover,
@@ -352,9 +353,7 @@ img {
     height: 44px;
     border-radius: 50%;
 
-    transition-property: background-color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color var(--animation)
 }
 
 .social-icons-svg {
@@ -362,9 +361,7 @@ img {
     width: 20px;
     height: 20px;
 
-    transition-property: fill;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: fill var(--animation)
 }
 
 .social-icons-link:hover,
@@ -397,9 +394,7 @@ img {
     justify-content: center;
     align-items: center;      
     
-    transition-property: border-color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: border-color var(--animation);
 }
 
 .client-icons-link:hover,
@@ -410,9 +405,7 @@ img {
 .client-icons-svg {
     fill: var(--main-icon-cl);
 
-    transition-property: fill;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: fill var(--animation)
 }
 
 .client-icons-link:hover .client-icons-svg,
@@ -454,9 +447,7 @@ img {
     border-radius: 4px;
     border: none;
 
-    transition-property: color, background-color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color var(--animation), background-color var(--animation);
 }
 
 .nav-btn:hover,
@@ -484,13 +475,36 @@ img {
     margin-top: 30px;
     margin-left: 30px;
 
-    transition-property: box-shadow;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: box-shadow var(--animation);
 }
 
 .portfolio-galeri:hover {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.img-portfolio {
+    position: relative;
+}
+
+.portfolio-thumb {
+    position: absolute;
+    width: 370px;
+    height: 294px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(33, 150, 243, 0.9);
+   
+    opacity: 0;
+
+    transition: transform var(--animation), opacity var(--animation);
+}
+
+.portfolio-galeri:hover .portfolio-thumb {
+    transform: translateY(-100%);
+
+    opacity: 1;
 }
 
 .name-portfolio {
@@ -505,7 +519,7 @@ img {
     margin: 20px 24px;
 }
 
-/*footer*/
+/* footer */
 .footer {
     padding-top: 60px;
     padding-bottom: 60px;
@@ -562,9 +576,7 @@ img {
     border-radius: 50%;  
     background: rgba(255, 255, 255, 0.1); 
 
-    transition-property: background-color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color var(--animation);
 }
 
 .footer-icons-link:hover,
